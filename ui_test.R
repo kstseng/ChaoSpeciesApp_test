@@ -7,49 +7,51 @@ shinyUI(pageWithSidebar(
   sidebarPanel(
     tags$head(
       tags$style(type = "text/css", "textarea{ max-width: 230px;}")
-      ),
+    ),
     
     p(h4("Data Setting")),
     wellPanel(
       selectInput(inputId='datatype', label='Choose the data type', choices=c('abundance', 'incidence')),
       
-#       checkboxInput(inputId="upload", label="Upload data?", value=FALSE),
-#       conditionalPanel(
-#         condition="input.upload == true",
-#         #########################
-#         # Include css file;
-#         tagList(
-#           tags$head(
-#             tags$title("Upload Data"),
-#             tags$link(rel="stylesheet", type="text/css",href="style.css")
-#           )
-#         ), 
-#         # Control panel;
-#         sidebarPanel(
-#           fileInput(inputId = "iFile", label = "", accept="application/vnd.ms-excel"),
-#           tags$hr(),
-#           uiOutput(outputId = "ui"),
-#           submitButton("Upload!")
-#         ),
-#         # Output panel;
-#         mainPanel(tableOutput(outputId = "contents"))
-#         #####################################
-#       ),
-      
+            checkboxInput(inputId="upload", label="Upload data?", value=TRUE),
+            conditionalPanel(
+              condition="input.upload == true",
+              #########################
+              # Include css file;
+              tagList(
+                tags$head(
+                  tags$title("Upload Data"),
+                  tags$link(rel="stylesheet", type="text/css",href="style.css")
+                )
+              ), 
+              # Control panel;
+              sidebarPanel(
+                fileInput(inputId = "iFile", label = "", accept="application/vnd.ms-excel"),
+                tags$hr(),
+                uiOutput(outputId = "ui"),
+                submitButton("Upload!")
+              ),
+              # Output panel;
+              mainPanel(tableOutput(outputId = "contents"))
+              #####################################
+            ),
+            conditionalPanel(
+              condition="input.upload == false",
+              conditionalPanel(
+                condition = "input.datatype == 'abundance'",
+                tags$textarea(id="copyAndPaste_abun", rows = 8,
+                              "Birds 752 276 194 126 121 97 95 83 72 44 39 0 16 15 0 13 9 9 9 8 7 4 0 0 2 2 1 1 1 \nSpider 0 15 46 2 0 0 0 1 6 1 1 0 1 2 0 1 0 0 1 1 0 0 0 0 0 0 15 0 0 17 0 0 0 0 9 0 0 1 1 22 2 0 0 4 0 0 6 0 1 1 8 1 2 0 0 0 0 0"),
+                p(em("(Input format : Species abundance frequency.)"))
+              ),
+              conditionalPanel(
+                condition = "input.datatype == 'incidence'",
+                tags$textarea(id="copyAndPaste_inci", rows = 8,
+                              "Ant 62 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 6 6 7 9 9 9 9 10 10 12 13 14 14 14 15 15 16 18 19 19 20 29"),
+                p(em("(Input format : First entry should be the total number of sampling units, and followed by species incidence frequency.)"))
+              )
+              ),
       uiOutput("dataname"),
       
-      conditionalPanel(
-        condition = "input.datatype == 'abundance'",
-          tags$textarea(id="copyAndPaste_abun", rows = 8,
-                        "Birds 752 276 194 126 121 97 95 83 72 44 39 0 16 15 0 13 9 9 9 8 7 4 0 0 2 2 1 1 1 \nSpider 0 15 46 2 0 0 0 1 6 1 1 0 1 2 0 1 0 0 1 1 0 0 0 0 0 0 15 0 0 17 0 0 0 0 9 0 0 1 1 22 2 0 0 4 0 0 6 0 1 1 8 1 2 0 0 0 0 0"),
-          p(em("(Input format : Species abundance frequency.)"))
-      ),
-      conditionalPanel(
-        condition = "input.datatype == 'incidence'",
-        tags$textarea(id="copyAndPaste_inci", rows = 8,
-                      "Ant 62 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 6 6 7 9 9 9 9 10 10 12 13 14 14 14 15 15 16 18 19 19 20 29"),
-        p(em("(Input format : First entry should be the total number of sampling units, and followed by species incidence frequency.)"))
-      ),
       checkboxGroupInput(inputId='method', label='Choose the estimated method(s)', 
                          choices=c("all", "Homogeneous", "Chao", "CE", "Jackknife"), selected = "all")
     ),
@@ -72,7 +74,7 @@ shinyUI(pageWithSidebar(
              conditionalPanel(
                condition = "input.datatype == 'abundance'",
                h4("Rare Species Group")
-               ),
+             ),
              conditionalPanel(
                condition = "input.datatype == 'incidence'",
                h4("Infrequent Species Group")
@@ -104,7 +106,7 @@ shinyUI(pageWithSidebar(
              conditionalPanel(
                condition = "input.datatype == 'incidence'",
                includeMarkdown("MarkD/description_inci.Rmd")
-               )
+             )
              
     ),
     
