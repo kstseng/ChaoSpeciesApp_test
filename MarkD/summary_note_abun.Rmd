@@ -1,0 +1,12 @@
+#### Note
+* **n** : the number of observed individuals
+* **S.obs** : the number of observed species
+* **cutpt** : the cut-off point
+* **n_rare** : the number of observed individuals for rare species
+* **S.obs_rare** : the number of observed species for rare species
+* **n_abun** : the number of observed individuals for abundant species
+* **S.obs_abun** : the number of observed species for abundant species
+* **C_rare** : the estimation of the sample coverage for rare species
+* **CV_rare** : the estimation of CV for rare species in ACE
+* **CV1_rare** : the estimation of CV1 for rare species in ACE-1
+* **fk** : first k speceis frequency counts in the sample, k = 1, 2, ..., cutpt

@@ -1,0 +1,21 @@
+#### Description of estimatiors/model : 
+* **Homogeneous Model** : This model assumes that all species have the same detection probabilities. See Eq.(3.2) of Lee and Chao (1994).  
+    
+* **Chao2 (Chao, 1987)** : This approach uses the frequencies of uniques and duplicates to estimate   
+  the number of missing species: see Chao(1987)
+  
+* **Chao2-bc** : a bias-corrected form for the Chao2: see Chao (2005).
+
+* **iChao2** : a improved form for the Chao2: see Chiu (2013). (to appear)
+
+* **Model(h) (ICE: Incidence-based Coverage Estimator)** : Model(h) assumes that the detection probabilities are heterogeneous among species. The estimator given here is an improved version of Eq. (3.18) in Lee and Chao (1994) by usng an improved estimated sample coverage given in Shen (2003) and the SPADE User guide: see Eq(3.23) in Lee and Chao (1994) for the estimated squared CV.
+
+* **Model(h)-1 (or ICE-1)** : A modified ICE for highly-heterogeneous cases.
+
+* **Model(th)** : Model(th) assumes that the detecting probability varies no only among species but also among quadrats/samples. The estimator given here is an improved version of Eq. (3.18) in Lee and Chao (1994) by using an improved estimated sample coverage given in Shen (2003) and the SPADE User Guide; see Eq.(3.22) in Lee and Chao (1994) for the estimated squared CV.
+
+* **Model(th)-1** : A modified estimator for highly-heterogeneous cases under Model(th).
+
+* **1st order jackknife** : It uses the frequency of uniques to estimate the number of missing species; see Burnham and Overton (1978).
+
+* **2nd order jackknife** : It uses the frequencies of uniques and duplicates to estimate the number of missing species; see Burnham and Overton (1978).

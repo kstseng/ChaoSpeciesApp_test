@@ -1,0 +1,10 @@
+* Chao, A. and Lee, S.-M. (1992). Estimating the number of classes via sample converage.      
+  *Journal of the American Statistical Association*, **87**, 210-217.
+* Chao, A. (1984). Nonparametric estimation of the number of classes in a population.   
+  *Scandinavian Journal of Statistics*, **11**, 265-270. 
+* Chao, A. (2005). Species estimation and applications. 
+  Encyclopedia of Statistical Sciences, Second Edition, Vol. 12, 7907-7916 (N. Balakrishnan,
+  C. B. Read and B. Vidakovic, Editors), Wiley, New York. 
+* Burnham, K. P. and Overton, W. S. (1978). Estimaton of the size of a closed population when 
+  capture probabilities vary among naimals,   
+  *Biometrika*, **65**, 625-633.

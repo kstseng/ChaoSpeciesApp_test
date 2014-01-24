@@ -1,0 +1,9 @@
+#### Note
+* **t** : the number of samples/quadrats
+* **S.obs** : the number of observed species
+* **cutpt** : the cut-off point
+* **S.obs_infreq** : the number of observed species for infrequent species
+* **S.obs_freq** : the number of observed species for frequent species
+* **C_infreq** : the estimation of the sample coverage for infrequent species
+* **CV_infreq** : the estimation of CV for infreq species
+* **Qk** : first k speceis frequency counts in the sample, k = 1, 2, ..., cutpt
